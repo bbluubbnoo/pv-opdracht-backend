@@ -1,11 +1,3 @@
-const express = require("express");
-const app = express();
-const PORT = 3000;
-const cors = require("cors");
-
-app.use(cors(
-));
-
 const games = [
     {
         id: 1,
@@ -328,24 +320,4 @@ const games = [
     }
 ];
 
-
-
-app.get("/games", (req, res) => {
-    res.json(games);
-});
-
-app.get("/games/:id", (req, res) => {
-    const game = games.find(item => item.id == req.params.id);
-    if(game)
-    {
-        res.json(game);
-    }
-    else
-    {
-        res.status(404).json({error : "Videogame niet gevonden"});
-    }
-});
-
-app.listen(PORT, () => {
-    console.log("Server luistert op poort: " + PORT);
-});
+module.exports = games;
