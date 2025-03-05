@@ -2,31 +2,26 @@ const express = require("express");
 const cors = require("cors");
 
 const app = express();
-app.use(express.json());
-app.use(cors()); // Zorgt ervoor dat de frontend toegang heeft tot de API
 
-// Dummy productdata
-const products = [
-    { id: 1, name: "Laptop", price: "€1200" },
-    { id: 2, name: "Smartphone", price: "€800" },
-    { id: 3, name: "Headphones", price: "€150" }
+app.use(cors());
+app.use(express.json());
+
+const codeertools = [
+    { id: 1, name: "Visual Studio Code", description: "Gratis editor van Microsoft.", price: "Gratis" },
+    { id: 2, name: "IntelliJ IDEA", description: "Krachtige Java IDE.", price: "€149 per jaar" },
+    { id: 3, name: "Sublime Text", description: "Minimalistische code editor.", price: "€80 eenmalig" }
 ];
 
-// Route om alle producten op te halen
-app.get("/api/products", (req, res) => {
-    res.json(products);
-});
+app.get("/api/codeertools", (req, res) => res.json(codeertools));
 
-// Route om een specifiek product op te halen via ID
-app.get("/api/products/:id", (req, res) => {
-    const product = products.find(p => p.id == req.params.id);
-    if (product) {
-        res.json(product);
+app.get("/api/codeertools/:id", (req, res) => {
+    const tool = codeertools.find(t => t.id == req.params.id);
+    if (tool) {
+        res.json(tool);
     } else {
-        res.status(404).json({ message: "Product niet gevonden" });
+        res.status(404).json({ message: "Tool niet gevonden" });
     }
 });
 
-// Start server
 const PORT = 3000;
-app.listen(PORT, () => console.log(`Server draait op http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`API draait op http://localhost:${PORT}`));
