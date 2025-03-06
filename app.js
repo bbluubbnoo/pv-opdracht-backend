@@ -13,7 +13,7 @@ const games = require("./data/games");
 
 
 //importedata David
-
+const codeertools = require("./data/codeertools");
 
 
 
@@ -63,21 +63,18 @@ app.get("/games/:id", (req, res) => {
 
 
 //Routes David
+app.get("/codeertools", (req, res) => {
+    res.json(codeertools);
+});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+app.get("/codeertools/:id", (req, res) => {
+    const tool = codeertools.find(t => t.id == req.params.id);
+    if (tool) {
+        res.json(tool);
+    } else {
+        res.status(404).json({ message: "Tool niet gevonden" });
+    }
+});
 
 
 
