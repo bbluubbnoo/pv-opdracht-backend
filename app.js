@@ -38,7 +38,7 @@ const codeertools = require("./data/codeertools");
 
 
 //import data Suzanna
-
+const cijfers = require("./data/cijfers")
 
 
 
@@ -160,21 +160,21 @@ app.get("/codeertools/:id", (req, res) => {
 
 
 //Routes Suzanna
+app.get("/cijfers", (req, res) => {
+    res.json(cijfers);
+});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+app.get("/cijfers/:id", (req, res) => {
+    const cijfer = cijfers.find(c => c.id == req.params.id);
+    if(cijfer)
+    {
+        res.json(cijfer);
+    }
+    else
+    {
+        res.status(404).json({error : "Cijfer bestaat niet"});
+    }
+});
 
 
 
