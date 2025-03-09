@@ -16,9 +16,8 @@ const games = require("./data/games");
 const codeertools = require("./data/codeertools");
 
 
-
-//import data Mike
-
+//import data Mike 
+const smartphones = require("./data/smartphones");
 
 
 
@@ -80,6 +79,21 @@ app.get("/codeertools/:id", (req, res) => {
 
 
 //Routes Mike
+app.get("/smartphones", (req, res) => {
+    res.json(smartphones);
+});
+
+app.get("/smartphones/:id", (req, res) => {
+    const smartphone = smartphones.find(item => item.id == req.params.id);
+    if(smartphone)
+    {
+        res.json(smartphone);
+    }
+    else
+    {
+        res.status(404).json({error : "Smartphone niet gevonden"});
+    }
+});
 
 
 
