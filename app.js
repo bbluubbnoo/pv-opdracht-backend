@@ -99,11 +99,11 @@ app.get("/smartphones/:id", (req, res) => {
 
 //Routes Igor
 
-app.get('/products', (req, res) => {
+app.get("/products", (req, res) => {
     res.json(products);
   });
   
-  app.get('/products/:id', (req, res) => {
+  app.get("/products/:id", (req, res) => {
     const id = req.params.id;
     const product = products.find(product => product.id == req.params.id);
     if (!product) {
