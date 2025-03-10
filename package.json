@@ -1,26 +1,29 @@
 {
-  "name": "pv-opdracht-backend",
-  "version": "1.0.0",
-  "description": "1. 27/02/2025 Opdracht 2: routing",
-  "main": "games.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/bbluubbnoo/pv-opdracht-backend.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/bbluubbnoo/pv-opdracht-backend/issues"
-  },
-  "homepage": "https://github.com/bbluubbnoo/pv-opdracht-backend#readme",
-  "dependencies": {
-    "cors": "^2.8.5",
-    "debug": "^4.4.0",
-    "express": "^4.21.2"
-  }
+    "dependencies": {
+        "cors": "^2.8.5",
+        "name": "pv-opdracht-backend",
+        "version": "1.0.0",
+        "description": "1. 27/02/2025 Opdracht 2: routing",
+        "main": "games.js",
+        "scripts": {
+            "test": "echo \"Error: no test specified\" && exit 1"
+        },
+        "repository": {
+            "type": "git",
+            "url": "git+https://github.com/bbluubbnoo/pv-opdracht-backend.git"
+        },
+        "keywords": [],
+        "author": "",
+        "license": "ISC",
+        "type": "commonjs",
+        "bugs": {
+            "url": "https://github.com/bbluubbnoo/pv-opdracht-backend/issues"
+        },
+        "homepage": "https://github.com/bbluubbnoo/pv-opdracht-backend#readme",
+        "dependencies": {
+            "cors": "^2.8.5",
+            "debug": "^4.4.0",
+            "express": "^4.21.2"
+        }
+    }
 }

@@ -23,7 +23,7 @@ const smartphones = require("./data/smartphones");
 
 //import data Igor
 
-
+const products = require("./data/products");
 
 
 //import data Fatima
@@ -97,40 +97,21 @@ app.get("/smartphones/:id", (req, res) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //Routes Igor
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+app.get("/products", (req, res) => {
+    res.json(products);
+  });
+  
+  app.get("/products/:id", (req, res) => {
+    const id = req.params.id;
+    const product = products.find(product => product.id == req.params.id);
+    if (!product) {
+      res.status(404).json({ message: 'Product not found' });
+    } else {
+      res.json(product);
+    }
+  });
 
 
 //Routes Fatima
