@@ -27,7 +27,7 @@ const smartphones = require("./data/smartphones");
 
 
 //import data Fatima
-const codeertools = require("./data/katten");
+const cats = require("./data/katten");
 
 
 
@@ -137,11 +137,19 @@ app.get("/smartphones/:id", (req, res) => {
 //Routes Fatima
 
 
+app.get("/katten", (req, res) => {
+    res.json(cats);
+});
 
-
-
-
-
+app.get("/katten/:id", (req, res) => {
+    const id = parseInt(req.params.id); // Zorg dat het een nummer is
+    const cat = cats.find(item => item.id === id);
+    if (cat) {
+        res.json(cat);
+    } else {
+        res.status(404).json({ error: "Kat niet gevonden" });
+    }
+});
 
 
 
