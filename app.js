@@ -34,7 +34,7 @@ const cats = require("./data/katten");
 
 //importe data Elise
 
-
+const sports = require("./data/sports");
 
 
 //import data Suzanna
@@ -145,7 +145,21 @@ app.get("/katten/:id", (req, res) => {
 
 //Routes Elise
 
+app.get("/sports", (req, res) => {
+    res.json(sports);
+});
 
+app.get("/sports/:id", (req, res) => {
+    const sport = sports.find(item => item.id == req.params.id);
+    if(sport)
+    {
+        res.json(sport);
+    }
+    else
+    {
+        res.status(404).json({error : "Smartphone niet gevonden"});
+    }
+});
 
 
 
